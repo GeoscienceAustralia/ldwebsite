@@ -10,7 +10,7 @@
 @prefix dpr: <http://promsns.org/def/dpr#> .
 
 
-<http://pid.geoscience.gov.au/org/ga> a dpr:DataProviderRegister, org:Organisation;
+<http://pid.geoscience.gov.au/org/ga/geoscienceaustralia> a dpr:DataProviderRegister, org:Organisation;
 	rdfs:label "Geoscience Australia"@en;
 	rdfs:comment "Geoscience Australia (GA) is Austriala's national custodian of geoscience information. As a Data Provider Register, GA publishes much information including datasets, web services, vocabularies and ontologies."@en;
 	dpr:isLDR "true"^^xsd:boolean;

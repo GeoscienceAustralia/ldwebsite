@@ -3,75 +3,75 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title>Ontologies Register</title>
-    <link rel="stylesheet" href="http://52.62.134.119/static/css/ga_theme.css" />
-    <link rel="stylesheet" href="http://52.62.134.119/static/css/alternates.css" />
-    <link rel="shortcut icon" href="http://52.62.134.119/static/img/favicon.ico">
+    <link rel="stylesheet" href="/ldwebsite/static/css/ga_theme.css" />
+    <link rel="stylesheet" href="/ldwebsite/static/css/alternates.css" />
+    <link rel="shortcut icon" href="/ldwebsite/static/img/favicon.ico">
 </head>
 <body>
     <div id="header">
-  <table>
-    <tr>
-      <td>
-        <a href="http://www.ga.gov.au"><img id="ga-logo" src="http://52.62.134.119/static/img/ga-logo-100h.png" /></a>
-      </td>
-      <td>
         <table>
-          <tr>
-            <td id="quote">
-              <span id="quote">Applying geoscience to Australia's most important challenges</span>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <div id="ga-nav">
-		<a href="http://www.ga.gov.au">GA Home</a>
-		<a href="http://pid.geoscience.gov.au/def/ont/">GA Ontologies Register</a>
-		<a href="http://ecat.ga.gov.au/geonetwork/" style="text-decoration:line-through;">Ontologies in eCat GA Catalogue</a>
-	      </div>
-            </td>
-          </tr>
+            <tr>
+                <td>
+                    <a href="http://www.ga.gov.au"><img id="ga-logo" src="/ldwebsite/static/img/ga-logo-100h.png" /></a>
+                </td>
+                <td>
+                    <table>
+                        <tr>
+                            <td id="quotebox">
+                                <span id="quote">Applying geoscience to Australia's most important challenges</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div id="ga-nav">
+                                    <a href="http://www.ga.gov.au">GA Home</a>
+                                    <a href="http://pid.geoscience.gov.au/def/">Definitional Resources Register</a>
+                                    <a href="http://pid.geoscience.gov.au/def/ont/ga/">GA Ontologies Register</a>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
         </table>
-      </td>
-    </tr>
-  </table>
-  <div id="ga-colour-strip-container">
-    <img id="ga-colour-strip" src="http://52.62.134.119/static/img/lo.jpg" />
-  </div>
-</div>
-    <div id="container-content">
-        
-	<h1>Ontologies Register</h1>
-	<h2>About this Register</h2>
-	<p>This is the static register (index) of GA's ontologies. Its purpose is to present the static URIs to each of them which is particularly useful for machines that wish to automatically index them, more so than than humans who can search for them manually.</p>
-	<p>This register is visible, here, in HTML for humans and also in <a href="https://en.wikipedia.org/wiki/Resource_Description_Framework">RDF</a> for machines:</p>
-	<ul>
-		<li><a href="http://pid.geoscience.gov.au/def/ont/index.ttl">RDF (turtle) version</a></li>
-	</ul>
-	<p>The RDF version of this page is forumulated according to the <a href="http://promsns.org/def/dpr">Data Provider Register ontology</a> which is a very simple profile of the <a href="http://epimorphics.com/public/vocabulary/Registry.html">Registry ontology</a>.</p>
-	<hr />
-	<h2>About the Ontologies</h2>
-	<p>These ontologies are <a href="http://www.ga.gov.au/">Geoscience Australia</a>'s ontologies for internal and external use. They are all formulated according to the <a href="https://en.wikipedia.org/wiki/Web_Ontology_Language">Web Ontology Language (OWL)</a> which is itself represented in RDF. The ontologies are able to be searched using the <a href="https://en.wikipedia.org/wiki/SPARQL">SPARQL</a> query language if cached in an RDF <a href="https://www.w3.org/2001/sw/wiki/Category:Triple_Store">triplestore</a>. Shortly (mid 2017) GA will provide a triplestore containing the content of all of these ontologies.</p>
-	<hr />
-	<h2>Ontologies</h2>
-	<ul>
-                <li><a href="http://pid.geoscience.gov.au/def/ont/ga/igsn">International Geosample Number (IGSN) ontology</a></li>
-                <li><a href="http://pid.geoscience.gov.au/def/ont/ga/link">Location Information Knowledge Platform (LINK) ontology</a></li>
-                <li><a href="http://pid.geoscience.gov.au/def/ont/ga/pdm">GA's Public Data Model ontology</a></li>
-	</ul>
+        <div id="ga-colour-strip-container">
+            <img id="ga-colour-strip" src="/ldwebsite/static/img/lo.jpg" />
+        </div>
+    </div><!-- #header -->
 
-    </div>
-    <div id="footer-container">
-	<div id="footer-links">
-		<a href="http://www.ga.gov.au/copyright">Copyright</a>
-		<a href="http://www.ga.gov.au/disclaimer">Disclaimer</a>
-		<a href="http://www.ga.gov.au/privacy">Privacy</a>
-		<a href="http://www.ga.gov.au/accessibility">Accessibility</a>
-		<a href="http://www.ga.gov.au/sitemap">Sitemap</a>
-		<a href="http://www.ga.gov.au/ips">Information Publication Scheme</a>
-		<a href="http://www.ga.gov.au/ips/foi">Freedom of Information</a>
-		<a href="http://www.ga.gov.au/contact-us">Contact us</a>
-	</div>
-</div>
+    <div id="content">
+        <h1>Ontologies Register</h1>
+        <h2>About this Register</h2>
+        <p>This is the static register (index) of GA's ontologies. Its purpose is to present the static URIs to each of them which is particularly useful for machines that wish to automatically index them, more so than than humans who can search for them manually.</p>
+        <p>This register is visible, here, in HTML for humans and also in <a href="https://en.wikipedia.org/wiki/Resource_Description_Framework">RDF</a> for machines:</p>
+        <ul>
+            <li><a href="http://pid.geoscience.gov.au/def/ont/index.ttl">RDF (turtle) version</a></li>
+        </ul>
+        <p>The RDF version of this page is forumulated according to the <a href="http://promsns.org/def/dpr">Data Provider Register ontology</a> which is a very simple profile of the <a href="http://epimorphics.com/public/vocabulary/Registry.html">Registry ontology</a>.</p>
+        <hr />
+        <h2>About the Ontologies</h2>
+        <p>These ontologies are <a href="http://www.ga.gov.au/">Geoscience Australia</a>'s ontologies for internal and external use. They are all formulated according to the <a href="https://en.wikipedia.org/wiki/Web_Ontology_Language">Web Ontology Language (OWL)</a> which is itself represented in RDF. The ontologies are able to be searched using the <a href="https://en.wikipedia.org/wiki/SPARQL">SPARQL</a> query language if cached in an RDF <a href="https://www.w3.org/2001/sw/wiki/Category:Triple_Store">triplestore</a>. Shortly (mid 2017) GA will provide a triplestore containing the content of all of these ontologies.</p>
+        <hr />
+        <h2>Ontologies</h2>
+        <ul>
+            <li><a href="http://pid.geoscience.gov.au/def/ont/ga/igsn">International Geosample Number (IGSN) ontology</a></li>
+            <li><a href="http://pid.geoscience.gov.au/def/ont/ga/link">Location Information Knowledge Platform (LINK) ontology</a></li>
+            <li><a href="http://pid.geoscience.gov.au/def/ont/ga/pdm">GA's Public Data Model ontology</a></li>
+        </ul>
+    </div><!-- #content -->
+
+    <div id="footer">
+        <div id="footer-links">
+            <a href="http://www.ga.gov.au/copyright">Copyright</a>
+            <a href="http://www.ga.gov.au/disclaimer">Disclaimer</a>
+            <a href="http://www.ga.gov.au/privacy">Privacy</a>
+            <a href="http://www.ga.gov.au/accessibility">Accessibility</a>
+            <a href="http://www.ga.gov.au/sitemap">Sitemap</a>
+            <a href="http://www.ga.gov.au/ips">Information Publication Scheme</a>
+            <a href="http://www.ga.gov.au/ips/foi">Freedom of Information</a>
+            <a href="http://www.ga.gov.au/contact-us">Contact us</a>
+        </div>
+    </div><!-- #footer -->
 </body>
 </html>
 
