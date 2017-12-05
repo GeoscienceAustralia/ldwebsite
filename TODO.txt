@@ -1,0 +1,4 @@
+* update all static RDF turtle files
+* create a sitemap.xml
+* test conneg via PID Svc for all resources
+* check ontology's styling
