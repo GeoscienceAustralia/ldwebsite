@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>GA - LD</title>
+    <link rel="stylesheet" href="/static/css/ga_theme.css" />
+    <link rel="stylesheet" href="/static/css/alternates.css" />
+    <link rel="shortcut icon" href="/static/img/favicon.ico">
+</head>
+<body>
+    <div id="header">
+  <table>
+    <tr>
+      <td>
+        <a href="http://www.ga.gov.au"><img id="ga-logo" src="/static/img/ga-logo-100h.png" /></a>
+      </td>
+      <td>
+        <table>
+          <tr>
+            <td id="quote">
+              <span id="quote">Applying geoscience to Australia's most important challenges</span>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div id="ga-nav">
+		<a href="http://www.ga.gov.au">GA Home</a>
+		<a href="http://pid.geoscience.gov.au/dataset/">Datasets Register</a>
+		<a href="http://pid.geoscience.gov.au/dataset/">eCat Index</a>
+		<a href="http://pid.geoscience.gov.au/def/voc/">Vocabularies Register</a>
+	      </div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+  <div id="ga-colour-strip-container">
+    <img id="ga-colour-strip" src="/static/img/lo.jpg" />
+  </div>
+</div>
+    <div id="container-content">
+        
+	<h1>GA - Linked Data Representation</h1>
+	<h2>About Linked Data</h2>
+	<p><a href="https://www.w3.org/standards/semanticweb/data">Linked Data</a> is the "interrelated datasets on the Web" using particular technologies, particularly the <a href="https://en.wikipedia.org/wiki/Resource_Description_Framework">Resource Description Framework (RDF)</a>. GA, being a large publisher of data, has started to link all of its public data together using Linked Data and this page delivers Linked Data representations of "Geosience Australia" defined both as an Organization, according to the <a href="https://www.w3.org/TR/vocab-org/">Organization Ontology</a> and as a Data Provider Register, according to the <a href="http://promsns.org/def/dpr">Data Provider Register ontology</a>.</p>
+	<p>The <a href="https://www.w3.org/RDF/">RDF</a> version of this information, in the <a href="https://www.w3.org/TR/turtle/">turtle</a> format can be found at <a href="http://pid.geoscience.gov.au/id/org/ga.ttl">http://pid.geoscience.gov.au/id/org/ga.ttl</a>.</p>
+	<hr />
+	<h2>GA as an Organisation</h2>
+	<p>Here are some basic facts about GA in accordance with an its definition as an "Organization", as per the <a href="https://www.w3.org/TR/vocab-org/">Organization Ontology</a>:</p>
+	<table class="lined">
+		<tr>
+			<th>Property definition</th>
+			<th>Property ontology name</th>
+			<th>Value</th>
+			<th>Data type</th>
+			<th>Notes</th>
+		</tr>
+		<tr>
+			<td>Name</td>
+			<td><a href="http://xmlns.com/foaf/spec/#term_name">foaf:name</a></td>
+			<td>Geoscience Australia</td>
+			<td><a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a></td>
+			<td>There are other representations of GA on the Internet, most notably GA's <a href="http://www.ga.gov.au">main website</a> but these are not definitional in a Linked Data sense since they don't implement ontology-based and machine readable descritors as this page does</td>
+		</tr>
+		<tr>
+			<td>Sub organisation of</td>
+			<td><a href="https://www.w3.org/TR/vocab-org/#org:subOrganizationOf">org:subOrganizationOf</td>
+			<td><a href="http://pid.geoscience.gov.au/org/ps" style="text-decoration:line-through;">Australian Public Service</a></td>
+			<td><a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a></td>
+                        <td>There is no Linked Data representation of the Australian Public Service, yet</td>
+		</tr>
+                <tr>	<td>Subunits</td>
+			<td><a href="https://www.w3.org/TR/vocab-org/#org:hasUnit">org:hasUnit</a></td>
+			<td>
+                                <a href="http://pid.geoscience.gov.au/person/chief-scientist" style="text-decoration:line-through;">Chief Scientist</a><br /><br />
+				<a href="http://pid.geoscience.gov.au/id/org/ga/resources-division" style="text-decoration:line-through;">Resources Division</a><br /><br />
+                                <a href="http://pid.geoscience.gov.au/id/org/ga/community-safety-and-earth-monitoring-division" style="text-decoration:line-through;">Community Safety and Earth Monitoring Division</a><br /><br />
+                                <a href="http://pid.geoscience.gov.au/id/org/ga/environmental-geoscience-division" style="text-decoration:line-through;">Environmental Geoscience Division</a><br /><br />
+                                <a href="http://pid.geoscience.gov.au/id/org/ga/corporate-services" style="text-decoration:line-through;">Corporate Services</a><br /><br />
+                                <a href="http://pid.geoscience.gov.au/id/org/ga/ictis" style="text-decoration:line-through;">ICT Innovation and Services</a>
+
+			</td>
+			<td><a href="https://www.w3.org/TR/vocab-org/#org:OrganizationalUnit">org:OrganizationalUnit</a></td>
+			<td>So far, the subunits of GA haven't yet gotten Linked Data representations so these links while they identify the subunits, do not resolve anywhere</td>
+		</tr>
+                <tr>
+			<td>Head of organisation</td>
+			<td><a href="https://www.w3.org/TR/vocab-org/#org:headOf">org:headOf</a></td>
+			<td><a href="http://pid.geoscience.gov.au/person/ceo" style="text-decoration:line-through;">James Johnson</a></td>
+			<td><a href="http://xmlns.com/foaf/spec/#term_Person">foaf:Person</a></td>
+			<td>This person has no online, Linked Data representation yet</td>
+		</tr>
+                <tr>
+			<td>Member of organisation</td>
+			<td><a href="https://www.w3.org/TR/vocab-org/#org:hasMember">org:hasMember</a></td>
+			<td><a href="http://pid.geoscience.gov.au/person/u48876" style="text-decoration:line-through;">Nicholas Car</a></td>
+                        <td><a href="http://xmlns.com/foaf/spec/#term_Person">foaf:Person</a></td>
+                        <td>This person has no online, Linked Data representation yet. <br /><br />This property of GA will, in time, lead to a register of GA's people</td>
+		</tr>
+	</table>
+	<h2>GA as a Register of Registers</h2>
+	<p>GA, for the purposes of providing access to its various public data holdings, can be considered a <a href="http://promsns.org/def/dpr#DataProviderRegister">Data Provider Register</a> which is a 'register or registers' as defined by the <a href="http://promsns.org/def/dpr">Data Provider Register Ontology (DPR-O)</a>.</p>
+	<p>As per the DPR-O specification, GA, as a Data Provider Register, is required to deliver at least a <a href="http://epimorphics.com/public/vocabulary/Registry.html#d4e820">Register</a> of <a href="https://www.w3.org/TR/vocab-dcat/#class-dataset">dcat:Dataset</a> class objects and potentially other registers of <a href="https://www.w3.org/TR/prov-o/#Agent">prov:Agent</a> and <a href="https://www.w3.org/TR/prov-o/#Activity"</a>prov:Activity</a>-class objects. To date, GA delivers only dcat:Dataset objects in a register which is itself a <a href="http://epimorphics.com/public/vocabulary/Registry.html#d4e778">Federated Register </a> containing a register of datasets and vocabularies which are a specialised type of dataset. The registers are:</p>
+	<ul>
+                <li><a href="http://pid.geoscience.gov.au/id/dataset/ga/">Datasets Register</a> - GA's register of datasets, managed by GA's enterprise catalogue system <a href="https://ecat.ga.gov.au/geonetwork/">eCat</a></li>
+                <li><a href="http://pid.geoscience.gov.au/def/voc/ga/">Vocabularies Register</a> - many vocabularies, both sceintific and functional, published by GA</li>
+                <li><a href="http://pid.geoscience.gov.au/id/sample/">Samples Register</a> - a national register of Samples that GA maintaines on behalf of Australia's geoscience organisations</li>
+	</ul>
+    </div>
+    <div id="footer-container">
+	<div id="footer-links">
+		<a href="http://www.ga.gov.au/copyright">Copyright</a>
+		<a href="http://www.ga.gov.au/disclaimer">Disclaimer</a>
+		<a href="http://www.ga.gov.au/privacy">Privacy</a>
+		<a href="http://www.ga.gov.au/accessibility">Accessibility</a>
+		<a href="http://www.ga.gov.au/sitemap">Sitemap</a>
+		<a href="http://www.ga.gov.au/ips">Information Publication Scheme</a>
+		<a href="http://www.ga.gov.au/ips/foi">Freedom of Information</a>
+		<a href="http://www.ga.gov.au/contact-us">Contact us</a>
+	</div>
+</div>
+</body>
+</html>

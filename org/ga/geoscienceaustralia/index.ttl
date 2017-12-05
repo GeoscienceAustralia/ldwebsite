@@ -1,0 +1,76 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix reg: <http://purl.org/linked-data/registry#> .
+@prefix dcat: <https://www.w3.org/ns/dcat#> .
+#@prefix voaf: <http://purl.org/vocommons/voaf#> .
+@prefix org: <http://www.w3.org/ns/org#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix dpr: <http://promsns.org/def/dpr#> .
+@prefix ga: <http://pid.geoscience.gov.au/org/ga#> .
+@prefix : <http://pid.geoscience.gov.au/org/ga> .
+
+: a org:Organization, dpr:DataProviderRegister;
+	# Org properties
+	foaf:name "Geoscience Australia"^^xsd:string;
+	rdfs:comment "Geoscience Australia is an Australian Federal government agency."^^xsd:string;
+	org:subOrganizationOf "Australian Public Service"^^xsd:string;
+	org:hasUnit 
+		ga:ChiefScientist, 
+		ga:ResourcesDivision, 
+		ga:CommunitySafetyAndEarthMonitoringDivision,
+		ga:EnvironmentalGeoscienceDivision,
+		ga:CorporateServices,
+		ga:ICTInnovationAndServices;
+	org:headOf <http://pid.geoscience.gov.au/person/ceo>;
+	org:hasMember <http://pid.geoscience.gov.au/person/u48876>;
+	# Data Provider Register properties
+	reg:subregister <http://pid.geoscience.gov.au/dataset/>; #GA's overarching Register of datasets
+	dpr:isLDR "true"^^xsd:boolean;
+.
+
+<http://pid.geoscience.gov.au/person/ceo> a foaf:Person;
+	foaf:title "Dr"^^xsd:string;
+	foaf:givenName "Chris"^^xsd:string;
+	foaf:familyName "Pigram"^^xsd:string;
+.
+
+<http://pid.geoscience.gov.au/person/u48876> a foaf:Person;
+	foaf:title "Mr"^^xsd:string;
+	foaf:givenName "Nicholas"^^xsd:string;
+	foaf:familyName "Car"^^xsd:string;
+.
+
+ga:ChiefScientist a org:OrganizationalUnit;
+	foaf:name "Chief Scientist"^^xsd:string;
+	rdfs:comment "Office of the Chief Scientist"^^xsd:string;
+.
+
+ga:ResourcesDivision a org:OrganizationalUnit;
+	foaf:name "Resources Division"^^xsd:string;
+	rdfs:comment "The Resources Division deals with "^^xsd:string;
+.
+
+ga:CommunitySafetyAndEarthMonitoringDivision;
+	foaf:name "Community Safety and Earth Monitoring Division"^^xsd:string;
+	rdfs:comment "The Community Safety and Earth Monitoring Division"^^xsd:string;
+.
+
+ga:EnvironmentalGeoscienceDivision;
+	foaf:name "Environmental Geoscience Division"^^xsd:string;
+	rdfs:comment "The Environmental Geoscience Division"^^xsd:string;
+.
+
+ga:CorporateServices;
+	foaf:name "Corporate Services"^^xsd:string;
+	rdfs:comment "Corporate Services"^^xsd:string;
+.
+
+ga:ICTInnovationAndServices;
+	foaf:name "ICT Innovation and Services"^^xsd:string;
+	rdfs:comment "ICT Innovation and Services"^^xsd:string;
+.
+
+

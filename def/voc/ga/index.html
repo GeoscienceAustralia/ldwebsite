@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Vocabularies Register</title>
+    <link rel="stylesheet" href="http://52.62.134.119/static/css/ga_theme.css" />
+    <link rel="stylesheet" href="http://52.62.134.119/static/css/alternates.css" />
+    <link rel="shortcut icon" href="http://52.62.134.119/static/img/favicon.ico">
+</head>
+<body>
+    <div id="header">
+  <table>
+    <tr>
+      <td>
+        <a href="http://www.ga.gov.au"><img id="ga-logo" src="http://52.62.134.119/static/img/ga-logo-100h.png" /></a>
+      </td>
+      <td>
+        <table>
+          <tr>
+            <td id="quote">
+              <span id="quote">Applying geoscience to Australia's most important challenges</span>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div id="ga-nav">
+		<a href="http://www.ga.gov.au">GA Home</a>
+		<a href="http://pid.geoscience.gov.au/def/voc/ga/">GA Vocabularies Register</a>
+	      </div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+  <div id="ga-colour-strip-container">
+    <img id="ga-colour-strip" src="http://ldweb.ga.gov.au/static/img/lo.jpg" />
+  </div>
+</div>
+    <div id="container-content">
+        
+	<h1>Vocabularies Register</h1>
+	<p>Geoscience Australia (GA) uses <a href="https://en.wikipedia.org/wiki/Controlled_vocabulary">controlled vocabularies</a> to organise our data for subsequent computer discovery.  A controlled vocabulary will mandate the use of predefined, authorised terms that have been curated by Geoscience Australia, in contrast to natural language vocabularies, which have no such restriction.</p>
+	<h2>About this Register</h2>
+	<p>This is the static register (index) of GA's vocabularies. Its purpose is to present the static URIs to each vocabulary which is particularly useful for machines that wish to automatically index them, more so than for humans who can search for them manually.</p>
+	<!--
+	<p>This register is visible, here, in HTML for humans and also in <a href="https://en.wikipedia.org/wiki/Resource_Description_Framework">RDF</a> for machines:</p>
+	<ul>
+		<li><a href="http://pid.geoscience.gov.au/def/ont/index.ttl">RDF (turtle) version</a></li>
+	</ul>
+	<p>The RDF version of this page is forumulated according to the <a href="http://promsns.org/def/dpr">Data Provider Register ontology</a> which is a very simple profile of the <a href="http://epimorphics.com/public/vocabulary/Registry.html">Registry ontology</a>.</p>
+	-->
+	<hr />
+	<h2>About the Vocabularies</h2>
+	<p>These vocabularies are <a href="http://www.ga.gov.au/">Geoscience Australia</a>'s vocabularies for internal and external use. GA uses the <a href="http://vocabs.ands.org.au/">Research Vocabularies Australia (RVA) Portal</a> managed by the <a href="http://www.ands.org.au">Australian National Data Service</a> to manage our vocabularies. In addition to inspecting and downloading vocabuaries in the RVA system, GA also provides our own instance of a <a href="https://en.wikipedia.org/wiki/Linked_data">Linked Data</a> <a href="https://en.wikipedia.org/wiki/Application_programming_interface">API</a>n that makes web pages (human and machine-readable) for each vocabulary and each terms within a vocabulary (Concept).</p>
+	<p>An example of one of our vocabularies in the RVA system is:</p>
+	<ul><li><a href="https://vocabs.ands.org.au/ga-igsn-code-lists">IGSN Code Lists</a></li></ul>
+	<p>The corresponding Linked Data API view of that vocabulary is at the web address which defines the vocabulary:</p>
+	<ul><li><a href="http://pid.geoscience.gov.au/def/voc/ga/igsn-codelists">http://pid.geoscience.gov.au/def/voc/ga/igsn-codelists</a></li></ul>
+	<p>The vocabularies are all formulated according to the <a href="https://en.wikipedia.org/wiki/Simple_Knowledge_Organization_System">Simple Knowledge Organization System (SKOS)</a> which is itself represented in <a href="https://en.wikipedia.org/wiki/Resource_Description_Framework">Resource Description Framework (RDF)</a>. The vocabularies can be searched using the <a href="https://en.wikipedia.org/wiki/SPARQL">SPARQL</a> query language and we provide service endpoints for SPARQL searches for each vocabulary. In time, we will present a single endpoint for all vocabularies allowing for searches against all of them.</p>
+	<hr />
+	<h2>Vocabularies</h2>
+	<ul>
+		<li><a href="http://pid.geoscience.gov.au/def/voc/ga/analysis">Analysis</a></li>
+		<li><a href="http://pid.geoscience.gov.au/def/voc/ga/associationtype">Association Type</a> (ISO19115 codelist)</li>
+		<li><a href="http://pid.geoscience.gov.au/def/voc/ga/featureofinteresttype">Feature of Interest Type</a></li>
+		<li><a href="http://pid.geoscience.gov.au/def/voc/ga/gadata">GA Data Classification</a></li>
+		<li><a href="http://pid.geoscience.gov.au/def/voc/ga/geology">Geology</a></li>
+		<li><a href="http://pid.geoscience.gov.au/def/voc/ga/groundwaterdata" style="text-decoration:line-through">Groundwater Data Classification</a> -- <em>not avialable yet</em></li>
+		<li><a href="http://pid.geoscience.gov.au/def/voc/ga/igsncode">IGSN Code Lists</a></li>
+		<li><a href="http://pid.geoscience.gov.au/def/voc/ga/materialtype">Material Type</a></li>
+		<li><a href="http://pid.geoscience.gov.au/def/voc/ga/netcdfldtos">netCDF-LD example ToS</a></li>
+		<li><a href="http://pid.geoscience.gov.au/def/voc/ga/protocoltype">Protocol Type</a> (ISO19115 text lookup values)</li>
+		<li><a href="http://pid.geoscience.gov.au/def/voc/ga/onlinefunction">Online Function</a> (ISO19115 codelist)</li>
+		<li><a href="http://pid.geoscience.gov.au/def/voc/ga/sampletype">Sample Type</a></li>
+		<li><a href="http://pid.geoscience.gov.au/def/voc/ga/samplingmethod">Sampling Method</a></li>
+		<li><a href="http://pid.geoscience.gov.au/def/voc/ga/servicetype">Service Type</a> (ISO19115 text lookup values)</li>
+		<li><a href="http://pid.geoscience.gov.au/def/voc/ga/uom">Units Of Measure</a></li>
+	</ul>
+    </div>
+    <div id="footer-container">
+	<div id="footer-links">
+		<a href="http://www.ga.gov.au/copyright">Copyright</a>
+		<a href="http://www.ga.gov.au/disclaimer">Disclaimer</a>
+		<a href="http://www.ga.gov.au/privacy">Privacy</a>
+		<a href="http://www.ga.gov.au/accessibility">Accessibility</a>
+		<a href="http://www.ga.gov.au/sitemap">Sitemap</a>
+		<a href="http://www.ga.gov.au/ips">Information Publication Scheme</a>
+		<a href="http://www.ga.gov.au/ips/foi">Freedom of Information</a>
+		<a href="http://www.ga.gov.au/contact-us">Contact us</a>
+	</div>
+</div>
+</body>
+</html>
+

@@ -1,0 +1,39 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix reg: <http://purl.org/linked-data/registry#> .
+@prefix dcat: <https://www.w3.org/ns/dcat#> .
+#@prefix voaf: <http://purl.org/vocommons/voaf#> .
+@prefix org: <http://www.w3.org/ns/org#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dpr: <http://promsns.org/def/dpr#> .
+
+
+<http://pid.geoscience.gov.au/org/ga> a dpr:DataProviderRegister, org:Organisation;
+	rdfs:label "Geoscience Australia"@en;
+	rdfs:comment "Geoscience Australia (GA) is Austriala's national custodian of geoscience information. As a Data Provider Register, GA publishes much information including datasets, web services, vocabularies and ontologies."@en;
+	dpr:isLDR "true"^^xsd:boolean;
+	reg:subregister <http://pid.geoscience.gov.au/dataset/>
+.
+
+<http://pid.geoscience.gov.au/dataset/> a dpr:FederatedRegister;
+	rdfs:label "GA's Dataset register"@en;
+	rdfs:comment "This is Geoscience Australia's dataset register. It is a federated register as it contains multiple subregisters. It is not yet a Linked Data reigster but will be soon"@en;
+	dpr:isLDR "false"^^xsd:boolean;
+	reg:subregister <http://pid.geoscience.gov.au/def/voc/>;
+	reg:containedItemClass dcat:Dataset;
+.
+
+<http://pid.geoscience.gov.au/def/ont/> a dpr:Register;
+	rdfs:label "GA's Ontologies register"@en;
+	rdfs:comment "This is Geoscience Australia's ontologies register. It is a subregister of GA's dataset register. It is not yet a Linked Data reigster but will be soon"@en;
+	dpr:isLDR "false"^^xsd:boolean;
+	reg:containedItemClass skos:ConceptScheme;
+.
+
+<http://pid.geoscience.gov.au/def/ont/igsn> a owl:Ontology, dcat:Dataset; # voaf:Vocabulary;
+        rdfs:label "IGSN Ontology"@en;
+        reg:register <http://pid.geoscience.gov.au/def/ont/>;
+.
+
