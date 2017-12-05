@@ -14,6 +14,11 @@ The main contents of this repo, and thus the website, are:
 * **static/**:
     * theming files (CSS, images etc.) for all ldweb GA-branded pages
 
+
+## License
+This repository is licensed under Creative Commons 4.0 International. See the [LICENSE deed](LICENSE) in this repository for details.
+
+
 ## Contacts
 **Nicholas Car**  
 *Senior Experimental Scientist*  
