@@ -4,3 +4,5 @@
 # Jetbrains
 .idea/
 
+# the individual ontologies have their own repos
+def/ont/ga/
