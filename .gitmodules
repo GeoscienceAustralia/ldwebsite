@@ -1,0 +1,3 @@
+[submodule "def/schema/ga/ISO19115-3-2016"]
+	path = def/schema/ga/ISO19115-3-2016
+	url = https://github.com:443/GeoscienceAustralia/ISO19115-profile.git
