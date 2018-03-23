@@ -6,3 +6,6 @@
 
 # the individual ontologies have their own repos
 def/ont/ga/
+
+# Eclipse project file
+.project

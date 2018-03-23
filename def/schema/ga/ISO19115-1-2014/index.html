@@ -3,8 +3,8 @@
 <head lang="en">
 	<meta charset="UTF-8">
 	<title>ISO19115-1:5015 GA Profile</title>
-	<link rel="stylesheet" href="/ldwebsite/static/css/ga_theme.css" />
-	<link rel="shortcut icon" href="/ldwebsite/static/img/favicon.ico">
+	<link rel="stylesheet" href="http://pid.geoscience.gov.au/ldwebsite/static/css/ga_theme.css" />
+	<link rel="shortcut icon" href="http://pid.geoscience.gov.au/ldwebsite/static/img/favicon.ico">
 </head>
 <body>
 	<div id="header">
@@ -42,6 +42,7 @@
     <div id="content">
 
 		<h1>ISO19115-1:2014 GA Profile Schema</h1>
+		<p><em>*** Please note that the GA Profile of ISO19115-1:2014 is under development, and the information on this page may change without notice and linked resources may not be available ***</em></p>
 		<h2>Contents</h2>
 		<p>This is the home of GA's profile of the <a href="https://www.iso.org/standard/53798.html">ISO19115-1:2014</a> standard for geographic metadata. This profile consists of the following, human readable documents:</p>
 		<ol>
@@ -50,123 +51,277 @@
 			</ol>
 			<p>Related to this is the GA Profile of <a href=https://www.iso.org/standard/32579.html">ISO19115-3:2016</a>, the standardised XML schema representation of ISO19115-1:2014 which contains the following resources:</p>
 		<ol>
-			<li><a href="http://pid.geoscience.gov.au/def/schema/ga/ISO19115-3-2016/schema.xsd">schema.xsd</a> - the <a href="https://en.wikipedia.org/wiki/XML_Schema_(W3C)">XML Schema Definition</a> of the profile</li>
-			<li><a href="http://pid.geoscience.gov.au/def/schema/ga/ISO19115-3-2016/codelists.xml">codelists.xml</a> - an <a href="https://www.w3.org/XML/">XML</a> document containing all of the codelists used with the schema that GA has extended</li>
-			<li><a href="http://pid.geoscience.gov.au/def/schema/ga/ISO19115-3-2016/lookups.xml">lookups.xml</a> - an XML document containing lookup values for elements within the standard that GA prefers to constrain in user interfaces, sucha s drop-downs, rather than allow free text</li>
+			<li><a href="#schematron_schema">Schematron schema</a> - for validation of ISO19115-3 instance documents against rules and extended codelists defined by the GA profile</li>
+			<li><a href="#xml_schema">XML Schema</a> - definition of XML types for GA profile extensions to elements in the ISO19115-3 schema</li>
+			<li><a href="#codelists">Codelists</a> - extensions to existing ISO19115-1:2014 codelists, and new codelists that constrain ISO19115-1:2014 elements that are free text in the base standard</li>
 		</ol>
-		<p>The next sections in this document describe the three elements of the XML schema representation of this profile in borad outline. For further details, see the <a href="http://pid.geoscience.gov.au/dataset/ga/103620" style="text-decoration:line-through;">Metadata Profile Definition Document</a>.</p>
+		
+		<h2>Profile Extensions</h2>
+		<p>This profile extends the base ISO19115-1:2014 standard in accordance with Annex C "Metadata extensions and profiles" of the <a href="https://www.iso.org/standard/53798.html" rel="nofollow">ISO19115-1:2014 'Geographic information -- Metadata'</a> documentation.  Our profile is used to ensure that some elements of the standard which are normally optional are compulsory so that those elements, such as dataset lineage, are always filled out by GA staff recording metadata for datasets. Our profile also implements several new type codes for things such as AssociationType which allow us to characterise relationships between objects described with this profile in ways not possible with the un-profiled standard. These include type codes such as 'derivedFrom' which indicated that a dataset is generally derived from another dataset. This is more general than the standard's own 'revisionOf' which implies that the revised dataset is substantially the same as the original.</p>
+		<p>Some elements of this profile allow us to relate elements modelled here to other models. For example, the 'derivedFrom' relationship mentioned above can be interpreted as a 'wasDerivedFrom' relationship as used in the <a href="https://www.w3.org/TR/prov-o/" rel="nofollow">PROV ontology</a> for provenance.</p>
+		
+		<p>Following are the ISO19115-1:2014 elements that have been extended by the GA profile.</p>
+
+		<h4>Metadata entity set information (MD_Metadata)</h4>
+		<table class="pretty" style="width: 800px;">
+			<tr>
+				<th>Name</th>
+				<th>Definition</th>
+				<th>Change from ISO19115-1</th>
+			</tr>
+			<tbody>
+				<tr>
+					<td>metadataIdentifier</td>
+					<td>unique identifier for this metadata record</td>
+					<td>Optional -&gt; Mandatory</td>
+				</tr>
+				<tr>
+					<td>parentMetadata</td>
+					<td>identification of the parent metadata record</td>
+					<td>Conditional -&gt; Conditional (changed condition)</td>
+				</tr>
+				<tr>
+					<td>referenceSystemInfo</td>
+					<td>description of the spatial and temporal reference systems used in the resource</td>
+					<td>Optional -&gt; Conditional</td>
+				</tr>
+				<tr>
+					<td>metadataConstraints</td>
+					<td>restrictions on the access and use of metadata</td>
+					<td>Optional -&gt; Mandatory</td>
+				</tr>
+				<tr>
+					<td>metadataScope</td>
+					<td>the scope/type of resource for which metadata is provided</td>
+					<td>Conditional -&gt; Mandatory</td>
+				</tr>
+				<tr>
+					<td>resourceLineage</td>
+					<td>information about the provenance, source(s), and/or the production process(es) applied to the resource</td>
+					<td>Optional -&gt; Mandatory</td>
+				</tr>
+			</tbody>
+		</table>
+
+		<h4>Identification information (MD_Identification)</h4>
+		<table class="pretty" style="width: 800px;">
+			<tr>
+				<th>Name</th>
+				<th>Definition</th>
+				<th>Change from ISO19115-1</th>
+			</tr>
+			<tbody>
+				<tr>
+					<td>pointOfContact</td>
+					<td>identification of, and means of communication with, person(s) and organization(s) associated with the resource(s)</td>
+					<td>Optional -&gt; Mandatory</td>
+				</tr>
+				<tr>
+					<td>topicCategory</td>
+					<td>main theme(s) of the resource</td>
+					<td>Conditional -&gt; Mandatory</td>
+				</tr>
+				<tr>
+					<td>resourceMaintenance</td>
+					<td>information about the frequency of resource updates, and the scope of those updates</td>
+					<td>Optional -&gt; Mandatory</td>
+				</tr>
+				<tr>
+					<td>resourceFormat</td>
+					<td>a description of the format of the resource(s)</td>
+					<td>Optional -&gt; Mandatory</td>
+				</tr>
+				<tr>
+					<td>resourceConstraints</td>
+					<td>information about constraints which apply to the resource(s)</td>
+					<td>Optional -&gt; Mandatory</td>
+				</tr>
+				<tr>
+					<td>descriptiveKeywords</td>
+					<td>category keywords, their type, and reference source</td>
+					<td>Optional -&gt; Mandatory</td>
+				</tr>
+			</tbody>
+		</table>		
+		
+		<h4>Constraint information (MD_Constraints)</h4>
+		<table class="pretty" style="width: 800px;">
+			<tr>
+				<th>Name</th>
+				<th>Definition</th>
+				<th>Change from ISO19115-1</th>
+			</tr>
+			<tbody>
+				<tr>
+					<td>reference</td>
+					<td>citation for the limitation or constraint, example: Copyright statement, licence agreement, etc.</td>
+					<td>Optional -&gt; Mandatory</td>
+				</tr>
+			</tbody>
+		</table>
+		
+		<h4>Lineage information (LI_Lineage)</h4>
+		<table class="pretty" style="width: 800px;">
+			<tr>
+				<th>Name</th>
+				<th>Definition</th>
+				<th>Change from ISO19115-1</th>
+			</tr>
+			<tbody>
+				<tr>
+					<td>statement</td>
+					<td>general explanation of the data producer’s knowledge about the lineage of a dataset</td>
+					<td>Optional -&gt; Mandatory</td>
+				</tr>
+				<tr>
+					<td>source</td>
+					<td>information about the source data used in creating the data specified by the scope</td>
+					<td>Conditional -&gt; Mandatory</td>
+				</tr>
+			</tbody>
+		</table>
+
+		<h4>Distribution information (MD_Distribution)</h4>
+		<table class="pretty" style="width: 800px;">
+			<tr>
+				<th>Name</th>
+				<th>Definition</th>
+				<th>Change from ISO19115-1</th>
+			</tr>
+			<tbody>
+				<tr>
+					<td>distributionFormat</td>
+					<td>provides a description of the format of the data to be
+						distributed</td>
+					<td>Optional -&gt; Mandatory</td>
+				</tr>
+			</tbody>
+		</table>
+		<br/><br/>
+		
 		<h2>Schema</h2>
-		<p><em>Here we will shortly describe what the GA schema does differently to the standard ISO schema</em></p>
-		<h2>Code List extensions</h2>
-		<p>This profile makes use of extended versions of the ISO standard's code lists. The original code lists are delivered within this standard's document and machine readable versions of those code lists are delvered in the XML schema representation of it. Here are web page versions of the extended code lists with the extensions indicated. the machine-readable versions of these are delivered in the XML schema version of this profile, as listed above.</p>
-
-		<h3>DS_AssociationTypeCode</h3>
-		<p>This code list defines relations between different items within a catalogue. GA has extended this code list to cater for relationships according to metadata models outside ISO19115, such as the <a href="https://www.w3.org/TR/prov-dm/">W3C's PROV Data Model</a> which we use for relating dataset provenance.</p>
-		<p>Our authoratitive version of this code list is maintained as a vocabulary from which we produce this HTML and XML versions of this code list. The vocabulary is available at its namespace URI:</p>
-		<ul>
-			<li><a href="http://pid.geoscience.gov.au/def/voc/ga/associationType">http://pid.geoscience.gov.au/def/voc/ga/associationType</a></li>
-		</ul>
+		<p>Schematron schema and XML Schema have been developed to
+			implement and faciliate validation of the extensions defined by the
+			GA profile.</p>
+		<a id="schematron_schema"><h4>Schematron schema</h4></a>
 		<table class="pretty" style="width: 800px;">
 			<tr>
-				<th>Entry</th><th>Description</th><th>Source</th><th>Notes</th>
+				<th>File</th>
+				<th>Purpose</th>
 			</tr>
-			<tr>
-				<td>crossReference</td><td>reference from one dataset to another</td><td>19115</td><td>Use to identify related documents or related resources</td>
-			</tr>
-			<tr>
-				<td>largerWorkCitation</td><td>reference to a master dataset of which this one is a part</td><td>19115</td><td>Use to identify parent collections, programs for which this resource is a part of, cruises or surveys from which the data was collected, etc</td>
-			</tr>
-			<tr>
-				<td>partOfSeamlessDatabase</td><td>part of the same structured set of data held in a computer</td><td>19115</td><td></td>
-			</tr>
-			<tr>
-				<td>source</td><td>mapping and charting information from which the dataset content originates</td><td>19115</td><td>recommend documenting sources in the lineage section instead of here.</td>
-			</tr>
-			<tr>
-				<td>stereoMate</td><td>part of a set of imagery that when used together, provides three-dimensional images</td><td>19115</td><td></td>
-			</tr>
-			<tr>
-				<td>collectiveTitle</td><td>common title for a collection of resources<br />NOTE: title identifies elements of a series collectively, combined with information about what volumes are available at the source cite</td><td>19115-1</td><td></td>
-			</tr>
-			<tr>
-				<td>dependency</td><td>associated through a dependency</td><td>19115-1</td><td></td>
-			</tr>
-			<tr>
-				<td>isComposedOf</td><td>reference to resources that are parts of this resource</td><td>19115-1</td><td></td>
-			</tr>
-			<tr>
-				<td>revisionOf</td><td>resource is a revision of associated resource</td><td>19115-1</td><td></td></tr>
-			<tr>
-				<td>series</td><td>associated through a common heritage such as produced to a common product specification</td><td>19115-1</td><td></td>
-			</tr>
-			<tr>
-				<td>operatesOn</td><td>an equivalent relationship to srv:operatesOn from a Service to a Dataset</td><td>Geoscience Australia</td><td>See <a href="http://pid.geoscience.gov.au/def/voc/ga/associationType/operatesOn">http://pid.geoscience.gov.au/def/voc/ga/associationType/operatesOn</a></td>
-			</tr>
-			<tr>
-				<td>operatedOnBy</td><td>inverse of operatesOn where the domain resource is, or can be, operated on (queried, subsetted etc.) by the range resource which must be an agent (i.e. is something that bears some form of responsibility for the operation taking place)</td><td>Geoscience Australia</td><td>See <a href="http://pid.geoscience.gov.au/def/voc/ga/AssociationType/operatedOnBy">http://pid.geoscience.gov.au/def/voc/ga/AssociationType/operatedOnBy</a></td>
-			</tr>
-			<tr>
-				<td>wasDerivedFrom</td><td>the domain resource was derived from the range resource which must have been an entity (i.e. not an actor with agency or a temporal event)</td><td>PROV-DM</td><td>See <a href="http://pid.geoscience.gov.au/def/voc/ga/associationType/wasDerivedFrom">http://pid.geoscience.gov.au/def/voc/ga/associationType/wasDerivedFrom</a></td>
-			</tr>
-			<tr>
-				<td>wasGeneratedBy</td><td>the domain resource was generated by the range resource which must have been a temporal event such as a data processing action or a field survey</td><td>PROV-DM</td><td>See <a href="http://pid.geoscience.gov.au/def/voc/ga/associationType/wasGeneratedBy">http://pid.geoscience.gov.au/def/voc/ga/associationType/wasGeneratedBy</a></td>
-			</tr>
-			<tr>
-				<td>generated</td><td>inverse of wasGeneratedBy where the domain resource generated the range resoure implying that the domain resource is a temporal event, such as a data processing action, and the range resource is an entity</td><td>PROV-DM</td><td>See <a href="http://pid.geoscience.gov.au/def/voc/ga/associationType/generated">http://pid.geoscience.gov.au/def/voc/ga/associationType/generated</a></td>
-			</tr>
+			<tbody>
+				<tr>
+					<td><a href="http://pid.geoscience.gov.au/def/schema/ga/ISO19115-3-2016/schematron-rules-ga.sch">schematron-rules-ga.sch</a></td>
+					<td>validation of constraints imposed on ISO19115-1 elements
+						by the GA profile</td>
+				</tr>
+				<tr>
+					<td><a href="http://pid.geoscience.gov.au/def/schema/ga/ISO19115-3-2016/codelist/schematron-rules-ga_codelists.sch">schematron-rules-ga_codelists.sch</td>
+					<td>validation of codelist values for elements that have new
+						or extended codelists imposed by the GA profile</td>
+				</tr>
+				<tr>
+					<td><a
+						href="http://pid.geoscience.gov.au/def/schema/ga/ISO19115-3-2016/codelist/schematron-rules-all_codelists.sch">schematron-rules-all_codelists.sch</td>
+					<td>validation of codelist values for all elements that are
+						constrained by a codelist (ISO19115-1 or profile extension). Note
+						that this Schematron is not GA profile specific - it has been
+						developed and stored here because the published ISO19115-3 schema does
+						not provide this functionality</td>
+				</tr>
+			</tbody>
 		</table>
-
-		<h3>DS_OnlineFuctionCode</h3>
-		<p>This code list defines the functions of things online linked to within a metadata record.</p>
-		<p>Our authoratitive version of this code list is maintained as a vocabulary from which we produce this HTML and XML versions of this code list. The vocabulary is available at its namespace URI:</p>
-		<ul>
-			<li><a href="http://pid.geoscience.gov.au/def/voc/ga/onLineFunctionType">http://pid.geoscience.gov.au/def/voc/ga/onLineFunctionType</a></li>
-		</ul>
+		<a id="xml_schema"><h4>XML Schema</h4></a>
 		<table class="pretty" style="width: 800px;">
 			<tr>
-				<th>Entry</th><th>Description</th><th>Source</th><th>Notes</th>
+				<th>File</th>
+				<th>Purpose</th>
 			</tr>
-			<tr>
-				<td>download</td><td>online instructions for transferring data from one storage device or system to another</td><td>ISO19115</td><td>an FTP site or downloadable zip file </td>
-			</tr>
-			<tr>
-				<td>information</td><td>online information about the resource</td><td>ISO19115</td><td>URLs with descriptive details about the resource</td>
-			</tr>
-			<tr>
-				<td>offlineAccess</td><td>online instructions for requesting the resource from the provider</td><td>ISO19115</td><td></td>
-			</tr>
-			<tr>
-				<td>order</td><td>online order process for obtaining the resource</td><td>ISO19115</td><td>an interface for requesting the resource</td>
-			</tr>
-			<tr>
-				<td>search</td><td>online search interface for seeking out information about the resource</td><td>ISO19115</td><td>map viewers, search interfaces</td>
-			</tr>
-			<tr>
-				<td>browseGraphic</td><td>browse graphic provided</td><td>ISO19115-1</td><td></td>
-			</tr>
-			<tr>
-				<td>browsing</td><td>online browsing provided</td><td>ISO19115-1</td><td></td>
-			</tr>
-			<tr>
-				<td>completeMetadata</td><td>complete metadata provided</td><td>ISO19115-1</td><td></td>
-			</tr>
-			<tr>
-				<td>emailService</td><td>online email service provided</td><td>ISO19115-1</td><td></td>
-			</tr>
-			<tr>
-				<td>fileAccess</td><td>online file access provided</td><td>ISO19115-1</td><td></td>
-			</tr>
-			<tr>
-				<td>upload</td><td>online resource upload capability provided</td><td>ISO19115-1</td><td></td>
-			</tr>
-			<tr>
-				<td>provenanceQueryService</td><td>an online service that allows querying for provenance records about the resource. The provenance records delivered are conformat to the W3C's PROV Data Model</td><td>PROV-AQ</td><td>This record is a child record of 'information' in the vocabulary that manages this code list extension.<br />See <a href="http://pid.geoscience.gov.au/def/voc/ga/OnLineFunctionType/provenanceQueryService">http://pid.geoscience.gov.au/def/voc/ga/OnLineFunctionType/provenanceQueryService</a></td>
-			</tr>
+			<tbody>
+				<tr>
+					<td><a href="http://pid.geoscience.gov.au/def/schema/ga/ISO19115-3-2016/gapm.xsd">gapm.xsd</td>
+					<td>defines the XML Schema components of the ISO19115-3 XML
+						schema profile of the GA Metadata profile of ISO19115-1:2014</td>
+				</tr>
+				<tr>
+					<td><a href="http://pid.geoscience.gov.au/def/schema/ga/ISO19115-3-2016/gapmCharacterString">gapmCharacterString.xsd</td>
+					<td>defines the gapMD_ProtocolTypeCode_PropertyType XML type,
+						an extension of the gco:CharacterString_PropertyType XML type, for
+						the purpose of constraining the cit:protocol element to a codelist</td>
+				</tr>
+				<tr>
+					<td><a href="http://pid.geoscience.gov.au/def/schema/ga/ISO19115-3-2016/gapmGenericName.xsd">gapmGenericName.xsd</td>
+					<td>defines the gapMD_ServiceTypeCode_PropertyType XML type,
+						an extension of the gco:GenericName_PropertyType XML type, for the
+						purpose of constraining the srv:serviceType element to a codelist</td>
+				</tr>
+			</tbody>
 		</table>
+		
+		<a id="codelists"><h2>Codelists</h2></a>
+		<h4>This profile extends two ISO19115-1 codelists:</h4>
+		<table class="pretty" style="width: 800px;">
+			<tr>
+				<th>File</th>
+				<th>Purpose</th>
+			</tr>
+			<tbody>
+				<tr>
+					<td>
+						<a href="http://pid.geoscience.gov.au/def/schema/ga/ISO19115-3-2016/codelist/assocTypeCode_codelist.xml">assocTypeCode_codelist.xml</a>
+						<a href="http://pid.geoscience.gov.au/def/schema/ga/ISO19115-3-2016/codelist/assocTypeCode_codelist.html">assocTypeCode_codelist.html</a>
+					</td>
+					<td>The DS_AssociationTypeCode codelist defines relations
+						between different items within a catalogue. GA has extended this
+						codelist to cater for relationships according to metadata models
+						outside ISO19115, such as the W3C's PROV Data Model which we use
+						for relating dataset provenance</td>
+				</tr>
+				<tr>
+					<td>
+						<a href="http://pid.geoscience.gov.au/def/schema/ga/ISO19115-3-2016/codelist/onlineFunctionCode_codelist.xml">onlineFunctionCode_codelist.xml</a>
+						<a href="http://pid.geoscience.gov.au/def/schema/ga/ISO19115-3-2016/codelist/onlineFunctionCode_codelist.html">onlineFunctionCode_codelist.html</a>
+					</td>
+					<td>The CI_OnLineFunctionCode codelist defines the functions
+						of things online linked to within a metadata record. Additional
+						online functions are added to the ISO19115-1 CI_OnLineFunctionCode
+						codelist to fulfill GA requirements</td>
+				</tr>
+			</tbody>
+		</table>
+		<h4>Two new codelists have been implemented to constrain ISO
+			19115-1 elements that are free text in the base standard:</h4>
+		<table class="pretty" style="width: 800px;">
+			<tr>
+				<th>File</th>
+				<th>Purpose</th>
+			</tr>
+			<tbody>
+				<tr>
+					<td>
+						<a href="http://pid.geoscience.gov.au/def/schema/ga/ISO19115-3-2016/codelist/serviceTypeCode_codelist.xml">serviceTypeCode_codelist.xml</a>
+						<a href="http://pid.geoscience.gov.au/def/schema/ga/ISO19115-3-2016/codelist/serviceTypeCode_codelist.html">serviceTypeCode_codelist.html</a>
+					</td>
+					<td>Constrains the ISO19115-1 srv:serviceType element to a restricted set of service types, based largely on the service types defined by the GeoNetwork community.  The ISO19115-1 srv:serviceType element is extended by the gapMD_ServiceTypeCode_PropertyType element to enable implementation of the codelist</td>
+				</tr>
+				<tr>
+					<td>
+						<a href="http://pid.geoscience.gov.au/def/schema/ga/ISO19115-3-2016/codelist/protocolTypeCode_codelist.xml">protocolTypeCode_codelist.xml</a>
+						<a href="http://pid.geoscience.gov.au/def/schema/ga/ISO19115-3-2016/codelist/protocolTypeCode_codelist.html">protocolTypeCode_codelist.html</a>
+					</td>
+					<td>Constrains the ISO19115-1 protocol element to a restricted set of protocols, based largely on the protocols defined by the GeoNetwork community.  The ISO19115-1 cit:protocol element is extended by the gapCI_ProtocolTypeCode_PropertyType element to enable implementation of the codelist</td>
+				</tr>
+			</tbody>
+		</table>
+		<p>
+			The authoritative values in the above codelists are maintained in <a
+				href="https://www.w3.org/2004/02/skos/" rel="nofollow">SKOS
+				vocabularies</a> hosted by <a href="https://vocabs.ands.org.au/"
+				rel="nofollow">Research Vocabularies Australia</a>. The codelists
+			are extracted from the vocabularies as XML files conforming to the
+			CAT 1.0 schema.
+		</p>
 
-		<h2>Lookups</h2>
-		<p>GA has implemented a number of lookup tables to allow catalogue tools to provided select lists for elements within the standard that are otherwise free text fields. These lookup tables are mostly taken from lookup tables provided by the <a href="http://geonetwork-opensource.org">GeoNetwork</a> open source catalogue tool but we have augmented them and delivered our authoratitive versions of them as vocabularies.</p>
-		<p><em>Coming</em></p>
     </div><!-- #content -->
 
 	<div id="footer">
