@@ -42,7 +42,7 @@
     <div id="content">
 
 		<h1>ISO19115-1:2014 GA Profile Schema</h1>
-		<p><em>*** Please note that the GA Profile of ISO19115-1:2014 is under development, and the information on this page may change without notice and linked resources may not be available ***</em></p>
+<!-- 		<p><em>*** Please note that the GA Profile of ISO19115-1:2014 is under development, and the information on this page may change without notice and linked resources may not be available ***</em></p> -->
 		<h2>Contents</h2>
 		<p>This is the home of GA's profile of the <a href="https://www.iso.org/standard/53798.html">ISO19115-1:2014</a> standard for geographic metadata. This profile consists of the following, human readable documents:</p>
 		<ol>
@@ -60,7 +60,7 @@
 		<p>This profile extends the base ISO19115-1:2014 standard in accordance with Annex C "Metadata extensions and profiles" of the <a href="https://www.iso.org/standard/53798.html" rel="nofollow">ISO19115-1:2014 'Geographic information -- Metadata'</a> documentation.  Our profile is used to ensure that some elements of the standard which are normally optional are compulsory so that those elements, such as dataset lineage, are always filled out by GA staff recording metadata for datasets. Our profile also implements several new type codes for things such as AssociationType which allow us to characterise relationships between objects described with this profile in ways not possible with the un-profiled standard. These include type codes such as 'derivedFrom' which indicated that a dataset is generally derived from another dataset. This is more general than the standard's own 'revisionOf' which implies that the revised dataset is substantially the same as the original.</p>
 		<p>Some elements of this profile allow us to relate elements modelled here to other models. For example, the 'derivedFrom' relationship mentioned above can be interpreted as a 'wasDerivedFrom' relationship as used in the <a href="https://www.w3.org/TR/prov-o/" rel="nofollow">PROV ontology</a> for provenance.</p>
 		
-		<p>Following are the ISO19115-1:2014 elements that have been extended by the GA profile.</p>
+		<p>Following is an overview of the packages containing properties whose constraints have been changed by this profile. .</p>
 
 		<h4>Metadata entity set information (MD_Metadata)</h4>
 		<table class="pretty" style="width: 800px;">
@@ -91,11 +91,6 @@
 					<td>Optional -&gt; Mandatory</td>
 				</tr>
 				<tr>
-					<td>metadataScope</td>
-					<td>the scope/type of resource for which metadata is provided</td>
-					<td>Conditional -&gt; Mandatory</td>
-				</tr>
-				<tr>
 					<td>resourceLineage</td>
 					<td>information about the provenance, source(s), and/or the production process(es) applied to the resource</td>
 					<td>Optional -&gt; Mandatory</td>
@@ -112,6 +107,11 @@
 			</tr>
 			<tbody>
 				<tr>
+					<td>(CI_Citation) identifier</td>
+					<td>value uniquely identifying an object within a namespace</td>
+					<td>Optional -&gt; Mandatory</td>
+				</tr>
+				<tr>
 					<td>pointOfContact</td>
 					<td>identification of, and means of communication with, person(s) and organization(s) associated with the resource(s)</td>
 					<td>Optional -&gt; Mandatory</td>
@@ -124,11 +124,6 @@
 				<tr>
 					<td>resourceMaintenance</td>
 					<td>information about the frequency of resource updates, and the scope of those updates</td>
-					<td>Optional -&gt; Mandatory</td>
-				</tr>
-				<tr>
-					<td>resourceFormat</td>
-					<td>a description of the format of the resource(s)</td>
 					<td>Optional -&gt; Mandatory</td>
 				</tr>
 				<tr>
@@ -157,6 +152,16 @@
 					<td>citation for the limitation or constraint, example: Copyright statement, licence agreement, etc.</td>
 					<td>Optional -&gt; Mandatory</td>
 				</tr>
+				<tr>
+					<td>(MD_LegalConstraints) accessConstraints</td>
+					<td>access constraints applied to assure the protection of privacy or intellectual property, and any special restrictions or limitations on obtaining the resource or metadata</td>
+					<td>Conditional -&gt; Conditional (changed condition)</td>
+				</tr>
+				<tr>
+					<td>(MD_LegalConstraints) useConstraints</td>
+					<td>constraints applied to assure the protection of privacy or intellectual property, and any special restrictions or limitations or warnings on using the resource or metadata</td>
+					<td>Conditional -&gt; Conditional (changed condition)</td>
+				</tr>
 			</tbody>
 		</table>
 		
@@ -172,11 +177,6 @@
 					<td>statement</td>
 					<td>general explanation of the data producer’s knowledge about the lineage of a dataset</td>
 					<td>Optional -&gt; Mandatory</td>
-				</tr>
-				<tr>
-					<td>source</td>
-					<td>information about the source data used in creating the data specified by the scope</td>
-					<td>Conditional -&gt; Mandatory</td>
 				</tr>
 			</tbody>
 		</table>
