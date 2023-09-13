@@ -1,4 +1,6 @@
 # ldwebsite
+*THIS CONTENT IS NO LONGER MAINTAINED*
+
 A repo comtaining static website content for the ldweb.ga.gov.au website
 
 The main contents of this repo, and thus the website, are:
